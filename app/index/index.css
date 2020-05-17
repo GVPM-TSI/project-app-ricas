@@ -1,0 +1,14 @@
+.center{
+    text-align: center;
+}
+
+#add{
+    text-decoration: none;
+    color: white;
+}
+
+.card{
+    background-color: #222222;
+    border: 1px solid #979797;
+    padding: 15px;
+}

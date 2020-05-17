@@ -1,0 +1,19 @@
+#form-login{
+    width: 30%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+#btn_loading, #btn_loading_alt{
+    display: none;
+}
+
+.nav-link{
+    color: #ffffff !important;
+}
+
+.center{
+    text-align: center!important;
+}

@@ -1,0 +1,43 @@
+.center{
+    text-align: center;
+}
+
+.btn-plus{
+    background: #10db3c;
+    border-radius: 5px; 
+    /* font-size: 20px; */
+    /* font-weight: bold; */
+}
+
+#btnsearch{
+    border-radius: 5px; 
+    /* font-size: 20px; */
+    /* font-weight: bold; */
+}
+
+#btn_limpar2{
+    border-radius: 5px; 
+    /* font-size: 20px; */
+    color: #000000;
+    /* font-weight: bold; */
+}
+
+.btn-trash{
+    background: #f12d2d;
+    border-radius: 5px;
+    /* font-size: 20px; */
+}
+
+#_espc{
+    display: none !important;
+}
+
+#destino, #origem{
+    display: inline-block;
+    width: 100%;
+}
+
+.margin-trash{
+    margin-top: 33px;
+}
+
