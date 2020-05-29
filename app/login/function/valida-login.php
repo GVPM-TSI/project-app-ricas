@@ -1,8 +1,8 @@
 <?php
     session_start();
 
-    $email = 'teste@gmail.com'; //$_POST['email'];
-    $senha = '123';//$_POST['senha'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
     require_once('../../../conexao.php');
 

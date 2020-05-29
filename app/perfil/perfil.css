@@ -1,0 +1,10 @@
+.btn-inv{
+    background-color: transparent;
+    border: 1px solid #999999;
+    color: #99999999;
+    border-radius: 5px;
+}
+
+.btn-inv:hover{
+    color: #99999999;
+}
