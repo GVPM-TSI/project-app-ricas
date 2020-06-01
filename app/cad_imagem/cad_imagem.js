@@ -1,4 +1,6 @@
 $(function () {
+    $('#titulo').val(localStorage.getItem("titulo"))
+    $('#desc').val(localStorage.getItem("desc"))
 
     // Vamos usar um número de índice exclusivo para cada nova instância do formulário clonado
     var _espc_clone_index = 0;
@@ -49,16 +51,16 @@ $(function () {
 
 
     $("#salvar").on("click", function () {
-        console.log($("#img_input").prop('files')[0]);
+        // console.log($("#img_input").prop('files')[0]);
 
         if ($("#titulo").val() != "") {
             if ($("#desc").val() != "") {
                 if ($("#img_input").prop('files')[0] != undefined) {
-                    if (verifica_imagem($("#img_input").prop('files')[0]['type'])) {
-                        var foto = $("#img_input").prop('files')[0]
-                    }
+                    localStorage.removeItem("titulo");
+                    localStorage.removeItem("desc");
+                    $('form[name="formFotos"]').submit();
                 } else {
-                    $("#alert").attr('class', 'alert alert-warning mt-3 show');
+                    alert('prenchar com uma foto')
                 }
             } else {
                 $("#desc").attr('class', 'form-control input-erro');
@@ -88,6 +90,14 @@ $(function () {
     //     }
     // });
 
+
+    $("#titulo").blur(function() {
+        localStorage.setItem("titulo", $(this).val());
+    });
+
+    $("#desc").blur(function() {
+        localStorage.setItem("desc", $(this).val());
+    });
 
 
     function verifica_imagem(img) {

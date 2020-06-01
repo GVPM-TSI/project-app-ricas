@@ -1,6 +1,6 @@
 $(function () {
 
-    $(document).on("click", "#btn_login", function () {
+    $("#btn_login").on("click", function () {
 
         $("#btn_login").css("display", "none");
         $("#btn_loading").css("display", "block");
@@ -30,7 +30,7 @@ $(function () {
                             $("#btn_login").css("display", "block");
                             $("#btn_loading").css("display", "none");
 
-                            $(location).attr('href', '../index/index.php');
+                            window.location.href = '../index/index.php';
 
 
                         } else if (data.msg == false) {

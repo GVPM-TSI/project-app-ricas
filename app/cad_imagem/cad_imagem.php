@@ -36,7 +36,7 @@ verify_session();
             </div>
         </div>
 
-        <form action="function/insert-imgs.php" method="POST" enctype="multipart/form-data">
+        <form action="function/insert-imgs.php" name="formFotos" method="POST" enctype="multipart/form-data">
 
             <div class="row mt-3">
                 <div class="col-md-6">
@@ -67,7 +67,7 @@ verify_session();
                             <button type="button" class=" btn btn-plus" id="add_espc"><i class="fas fa-plus"></i>ADD</button>
                             <button type="button" id="btn_limpar2" class="btn btn-primary">Limpar </button>
                             <div class="float-right">
-                                <button type="submit" id="btnsearch" class="btn btn-success">Enviar </i></button>
+                                <button type="button" id="salvar" class="btn btn-success">Enviar </i></button>
                             </div>
                         </div>
                     </div>
@@ -78,8 +78,7 @@ verify_session();
                                 <div class="col-md-10">
                                     <label for="customFile">Foto</label>
                                     <div class="custom-file">
-                                        <label for="img_input" class="btn btn-primary">Upload file</label>
-                                        <input type="file" class="img" name="customFile" style="display:none" id="img_input" accept="image/*">
+                                        <input type="file" class="img" name="customFile" id="img_input" accept="image/*">
                                     </div>
                                 </div>
                                 <div class="col-md-2 margin-trash">
@@ -93,6 +92,55 @@ verify_session();
             </div>
 
         </form>
+
+
+        <!-- <div class="row">
+            <div class="col-md-6 mt-5">
+                <label for="customFile">Foto</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input " name="customFile" id="img_input">
+                    <label class="custom-file-label" for="customFile">Deposite sua foto aqui !</label>
+                </div>
+                <div id="alert" class="alert alert-warning mt-3 hidden" role="alert">
+                    Preencha com uma foto
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="alertgif" class="alert alert-warning mt-3 hidden" role="alert">
+                    Gif não é aceito
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="alertNotImg" class="alert alert-warning mt-3 hidden" role="alert">
+                    O arquivo não é uma imagem!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <button class=" btn btn-success" id="add_espc">ADD</button>
+
+                <div id="_espc" class="col-md-4">
+                    <div class="row mt-3 mr-2">
+                        <div class="col-md-10">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Palavra de busca">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button id="remover_espc" class="btn btn-trash"><i class="far fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <button id="salvar" class="btn btn-success float-right">Salvar</button>
+            </div>
+        </div> -->
     </main>
 
 </body>

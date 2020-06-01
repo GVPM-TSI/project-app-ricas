@@ -33,17 +33,19 @@ $(function () {
 
                                         $(this).css("display", "block");
                                         $("#btn_loading").css("display", "none");
+                                        $("#btn_cadstro").css("display", "blobk");
 
-                                        swal({
-                                            title: "Nice!",
-                                            text: "Cadastro realizado com sucesso, agora faca seu login!!",
-                                            icon: "success",
-                                            button: {
-                                                text: "OK!",
-                                                // id: 'ok-modal',
-                                            },
-                                        });
-
+                                        // swal({
+                                        //     title: "Nice!",
+                                        //     text: "Cadastro realizado com sucesso, agora faca seu login!!",
+                                        //     icon: "success",
+                                        //     button: {
+                                        //         text: "OK!",
+                                        //         // id: 'ok-modal',
+                                        //     },
+                                        // });
+                                        
+                                        $(location).attr('href', '../login/login.php');
 
                                     } else if (data.msg == false) {
                                         $("#nome").val();

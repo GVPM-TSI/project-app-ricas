@@ -18,16 +18,14 @@
     <main class="container">
         <form class="row" enctype="multipart/form-data">
             <div id="form-login" class="col-md-12">
-                <form>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control input-bottom" id="email" placeholder="Digite seu email">
-                    </div>
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <input type="password" class="form-control input-bottom" id="senha" placeholder="Digite sua senha">
-                    </div>
-                </form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control input-bottom" id="email" placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control input-bottom" id="senha" placeholder="Digite sua senha">
+                </div>
                 <button id="btn_login" class="btn btn-outline-success btn-block">ENVIAR</button>
                 <button id="btn_loading" class="btn btn-outline-success btn-block" disabled> <span class="spinner-border spinner-border-sm"></span> Loading ...</button>
                 <?php
