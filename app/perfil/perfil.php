@@ -58,12 +58,19 @@ $ret = $sql->fetch(PDO::FETCH_OBJ);
             ?>
                     <div class="col-md-6 mt-3">
                         <div class="card">
-                            <h4 class="card-title"><?php echo $ret->titulo?></h4>
+                            <h4 class="card-title"><?php echo $ret->titulo ?></h4>
                             <div class="card-body">
-                                <p class="card-text"><?php echo $ret->descricao;?></p>
+                                <p class="card-text"><?php echo $ret->descricao; ?></p>
                             </div>
-                            <a class="btn btn-primary" href="../visualizar/visualizar.php?id=<?php echo $ret->cd_img ?>">Visualizar</button></a>
-                            <a class="btn btn-danger mt-2" href="function/eliminar.php?id=<?php echo $ret->cd_img ?>">Elinimar</button></a>
+                            <a class="btn btn-warning" href="../visualizar/visualizar.php?id=<?php echo $ret->cd_img ?>">Visualizar</button></a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a class="btn btn-danger mt-2 btn-block" href="function/eliminar.php?id=<?php echo $ret->cd_img ?>">Eliminar</button></a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="btn btn-primary mt-2 btn-block" href="editar.php?id=<?php echo $ret->cd_img ?>">Editar</button></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 <?php
