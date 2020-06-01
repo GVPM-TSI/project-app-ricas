@@ -13,7 +13,7 @@ require_once('../../conexao.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obras Primas</title>
     <?php require_once('../../assets/includes/extensoes.php') ?>
-    <link rel="stylesheet" href="vizualizar.css">
+    <link rel="stylesheet" href="visualizar.css">
 </head>
 
 <body>
@@ -97,7 +97,7 @@ require_once('../../conexao.php');
                         <h2 class="center"><?php echo $array[$key][$g]['titulo'] ?></h2>
                         <div class="row mt-5">
                             <div class="col-md-6">
-                                <img id="<?php echo $array[$key][$g]['id_galeria']; ?>" class="img-vizualizar">
+                                <img id="<?php echo $array[$key][$g]['id_galeria']; ?>" class="img-visualizar">
                             </div>
 
                             <div class="col-md-6">

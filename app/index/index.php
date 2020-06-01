@@ -63,7 +63,7 @@ require_once('../../conexao.php');
                             <div class="card-body">
                                 <p class="card-text"><?php echo $ret->descricao ?></p>
                             </div>
-                            <a class="btn btn-primary" href="../vizualizar/vizualizar.php?id=<?php echo $ret->cd_img ?>">Vizualizar</button></a>
+                            <a class="btn btn-primary" href="../visualizar/visualizar.php?id=<?php echo $ret->cd_img ?>">Visualizar</button></a>
                         </div>
                     </div>
                 <?php
