@@ -25,6 +25,7 @@ $(function () {
 
         });
     });
+  });
 
     $("#btn_limpar2").click(function () {
         for (x = _espc_clone_index; x > 0; x--) {
@@ -51,35 +52,7 @@ $(function () {
     });
 
 
-    $("#salvar").on("click", function () {
-        if ($('#timer').val() != "") {
-            if ($('#timer').val() > 1000 && $('#timer').val() < 3000) {
-                // console.log($('#timer').val());
-                if ($("#titulo").val() != "") {
-                    if ($("#desc").val() != "") {
-                        if ($("#img_input").prop('files')[0] != undefined) {
-                            localStorage.removeItem("titulo");
-                            localStorage.removeItem("desc");
-                            localStorage.removeItem("timer");
-                            $('form[name="formFotos"]').submit();
-                        } else {
-                            alert('prenchar com uma foto')
-                        }
-                    } else {
-                        $("#desc").attr('class', 'form-control input-erro');
-                    }
-                } else {
-                    $("#titulo").attr('class', 'form-control input-erro');
-                }
-            } else {
-                $('#alert').attr('class', 'col-md-12 mt-5 show');
-            }
-        } else {
-            $("#timer").attr('class', 'form-control input-erro');
-        }
-
-    });
-
+ 
     $(".img").on('change', function () {
         console.log(this);
     });
@@ -99,6 +72,9 @@ $(function () {
     //     }
     // });
 
+  $("#btn-enviar").click(function () {
+    var text = $("#txt_conteudo").val();
+    text = text.replace(/\n/g, "<br />");
 
     $("#titulo").blur(function () {
         localStorage.setItem("titulo", $(this).val());
@@ -111,24 +87,69 @@ $(function () {
         localStorage.setItem("timer", $(this).val());
     });
 
+  $("#btn_enviar").on("click", function () {
+    alert($("#form_teste").serialize());
+  });
 
-    function verifica_imagem(img) {
-        $("#alertgif").attr('class', 'alert alert-warning mt-3 hidden')
-        $("#alertNotImg").attr('class', 'alert alert-warning mt-3 hidden')
+  $("#salvar").on("click", function () {
+    // console.log($("#img_input").prop('files')[0]);
 
-        if (img != "image/gif") {
-            if (img.split('/')[0] === 'image') {
-                return true
-            } else {
-                $("#alertNotImg").attr('class', 'alert alert-warning mt-3 show');
-                return false;
-            }
+    if ($("#titulo").val() != "") {
+      if ($("#desc").val() != "") {
+        if ($("#img_input").prop("files")[0] != undefined) {
+          localStorage.removeItem("titulo");
+          localStorage.removeItem("desc");
+          $('form[name="formFotos"]').submit();
         } else {
-            $("#alertgif").attr('class', 'alert alert-warning mt-3 show');
-            return false;
+          alert("prenchar com uma foto");
         }
-
+      } else {
+        $("#desc").attr("class", "form-control input-erro");
+      }
+    } else {
+      $("#titulo").attr("class", "form-control input-erro");
     }
+  });
 
+  $(".img").on("change", function () {
+    console.log(this);
+  });
 
-})
+  $(".custom-file-input").on("change", function () {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  });
+
+  // $("#btnsearch").click(function (e) {
+  //     for (x = _espc_clone_index; x >= 0; x--) {
+  //         // $("#destino").highlight($("#input_pesquisa" + x).val());
+  //         console.log(x);
+
+  //     }
+  // });
+
+  $("#titulo").on("input", function () {
+    localStorage.setItem("titulo", $(this).val());
+  });
+
+  $("#desc").on("input", function () {
+    localStorage.setItem("desc", $(this).val());
+  });
+
+  function verifica_imagem(img) {
+    $("#alertgif").attr("class", "alert alert-warning mt-3 hidden");
+    $("#alertNotImg").attr("class", "alert alert-warning mt-3 hidden");
+
+    if (img != "image/gif") {
+      if (img.split("/")[0] === "image") {
+        return true;
+      } else {
+        $("#alertNotImg").attr("class", "alert alert-warning mt-3 show");
+        return false;
+      }
+    } else {
+      $("#alertgif").attr("class", "alert alert-warning mt-3 show");
+      return false;
+    }
+  }
+});

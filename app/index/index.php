@@ -57,8 +57,8 @@ require_once('../../conexao.php');
 
                 while ($ret = $sql->fetch(PDO::FETCH_OBJ)) {
             ?>
-                    <div class="col-md-3 mt-3">
-                        <div class="card" style="width:200px">
+                    <div class="col-md-6 mt-3">
+                        <div class="card">
                             <h4 class="card-title"><?php echo $ret->titulo ?></h4>
                             <div class="card-body">
                                 <p class="card-text"><?php echo $ret->descricao ?></p>

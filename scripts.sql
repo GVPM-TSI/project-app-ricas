@@ -1,3 +1,5 @@
+-- usuario e senha padrões root / ''
+
 create database db_app_ricas;
 use db_app_ricas;
 

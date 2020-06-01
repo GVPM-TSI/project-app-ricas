@@ -17,7 +17,7 @@
 
     <main class="container">
         <div class="row">
-            <div id="form-login" class="col-md-12">
+            <div id="form-login" class="col-md-6">
                 <form>
                     <div class="form-group">
                         <label for="Nome">Nome</label>
