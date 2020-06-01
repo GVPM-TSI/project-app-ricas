@@ -13,5 +13,5 @@ Museu desenvolvido em Aplicações Ricas
 
 <h1>Integrantes</h1>
 
-<b>Guilherme Barbosa</b>
+<b>Guilherme Barbosa</b> <br>
 <b>Pedro Marcelino</b>
