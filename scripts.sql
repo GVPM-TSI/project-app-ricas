@@ -31,3 +31,6 @@ ALTER TABLE `tbl_imagem_caminho`
 ALTER TABLE `tbl_imagem_caminho`
   ADD CONSTRAINT `tbl_imagem_caminho_ibfk_1` FOREIGN KEY (`id_galeria`) REFERENCES `tbl_imagem` (`cd_img`),
   ADD CONSTRAINT `tbl_imagem_caminho_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`cd_usu`);
+
+alter table tbl_imagem add column loop_ft varchar(2);
+alter table tbl_imagem add column timer int;
