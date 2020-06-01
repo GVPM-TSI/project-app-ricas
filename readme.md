@@ -14,6 +14,11 @@ Museu desenvolvido em Aplicações Ricas
 <h1>Vídeo de demonstração da plataforma</h1>
 https://youtu.be/LEcQspNwtNw
 
+<h1>Acesso na web</h1>
+<i><small>**Apenas para testes básicos, devido a limitações da hospedagem, não são salvas as imagens no servidor, para o uso da plataforma da maneira correta, é recomendável a execução do projeto local.**</small></i> <br>
+
+http://museu-imagens-gvmp-tsi.eu5.org/app/index/index.php
+
 <h1>Integrantes</h1>
 
 <b>Guilherme Barbosa</b> <br>
