@@ -17,7 +17,7 @@
 
     <main class="container">
         <form class="row" enctype="multipart/form-data">
-            <div id="form-login" class="col-md-12">
+            <div id="form-login" class="col-md-6">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control input-bottom" id="email" placeholder="Digite seu email">
