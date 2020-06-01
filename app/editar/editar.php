@@ -14,7 +14,6 @@ $ret = $sql->fetch(PDO::FETCH_OBJ);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - <?php echo $ret->nm_usu; ?></title>
     <?php require_once('../../assets/includes/extensoes.php') ?>
-    <link rel="stylesheet" href="perfil.css">
 </head>
 
 <header>
