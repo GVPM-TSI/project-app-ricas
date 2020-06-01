@@ -29,6 +29,11 @@ verify_session();
     </header>
 
     <main class="container mt-5">
+        <div class="col-md-12">
+            <div class="alert alert-warning" role="alert">
+                A arte deve ter no máximo 1 minuto
+            </div>
+        </div>
 
         <div class="row center">
             <div class="col-md-12 mt-5">
@@ -48,16 +53,14 @@ verify_session();
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="titulo">Titulo da Obra</label>
-                        <input type="text" name="titulo" class="form-control input-bottom" id="titulo"
-                            placeholder="Digite o titulo da obra">
+                        <input type="text" name="titulo" class="form-control input-bottom" id="titulo" placeholder="Digite o titulo da obra">
                     </div>
                 </div>
 
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="desc">Descrição </label>
-                        <textarea name="desc" rows="1" class="form-control input-bottom" id="desc"
-                            placeholder="Digite a descrição da obra"></textarea>
+                        <textarea name="desc" rows="1" class="form-control input-bottom" id="desc" placeholder="Digite a descrição da obra"></textarea>
                     </div>
                 </div>
                 <div class="col-md-1 mt-5">
@@ -78,8 +81,7 @@ verify_session();
 
                     <div class="row mt-4">
                         <div class="col-md-12">
-                            <button type="button" class=" btn btn-plus" id="add_espc"><i
-                                    class="fas fa-plus"></i>ADD</button>
+                            <button type="button" class=" btn btn-plus" id="add_espc"><i class="fas fa-plus"></i>ADD</button>
                             <button type="button" id="btn_limpar2" class="btn btn-primary">Limpar </button>
                             <div class="float-right">
                                 <button type="button" id="salvar" class="btn btn-success">Enviar </i></button>
@@ -93,20 +95,18 @@ verify_session();
                                 <div class="col-md-10">
                                     <label for="customFile">Foto</label>
                                     <div class="custom-file">
-                                        <input style="width: 100%;" type="file" class="img" name="customFile"
-                                            id="img_input" accept="image/*">
+                                        <input style="width: 100%;" type="file" class="img" name="customFile" id="img_input" accept="image/*">
                                     </div>
                                 </div>
                                 <div class="col-md-2 margin-trash">
-                                    <button id="remover_espc" class="btn btn-trash"><i
-                                            class="far fa-trash-alt"></i></button>
+                                    <button id="remover_espc" class="btn btn-trash"><i class="far fa-trash-alt"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div id="alert" class="col-md-12 mt-5 hidden">
-                        <div class="alert alert-warning" role="alert"  >
-                            O timer precisa ser MAIOR que 1000 ou MENOS que 3000
+                        <div class="alert alert-warning" role="alert">
+                            O timer precisa ser MAIOR que 1000 ou MENOR que 3000 Milisegundos
                         </div>
                     </div>
                 </div>
@@ -120,3 +120,34 @@ verify_session();
 
 
 </html>
+
+<script>
+    $("#salvar").on("click", function() {
+        // console.log('a');
+        if ($('#timer').val() != "") {
+            if ($('#timer').val() >= 1000 && $('#timer').val() < 3000) {
+                if ($("#titulo").val() != "") {
+                    if ($("#desc").val() != "") {
+                        if ($("#img_input").prop('files')[0] != undefined) {
+                            localStorage.removeItem("titulo");
+                            localStorage.removeItem("desc");
+                            localStorage.removeItem("timer");
+                            $('form[name="formFotos"]').submit();
+                        } else {
+                            alert('prenchar com uma foto')
+                        }
+                    } else {
+                        $("#desc").attr('class', 'form-control input-erro');
+                    }
+                } else {
+                    $("#titulo").attr('class', 'form-control input-erro');
+                }
+            } else {
+                $('#alert').attr('class', 'col-md-12 mt-5 show');
+            }
+        } else {
+            $("#timer").attr('class', 'form-control input-erro');
+        }
+
+    });
+</script>
