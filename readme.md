@@ -11,6 +11,9 @@ Museu desenvolvido em Aplicações Ricas
 <b>3</b> - Crie no seu SQL os scripts contidos em <i>scripts.sql</i><br><br>
 <b>4</b> - Com o SQL e o Apache ligados, acesse: <b>localhost/endereco_do_projeto</b> .<br><br>
 
+<h1>Vídeo de demonstração da plataforma</h1>
+https://youtu.be/LEcQspNwtNw
+
 <h1>Integrantes</h1>
 
 <b>Guilherme Barbosa</b> <br>
