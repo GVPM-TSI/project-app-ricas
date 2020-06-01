@@ -63,6 +63,7 @@ $ret = $sql->fetch(PDO::FETCH_OBJ);
                                 <p class="card-text"><?php echo $ret->descricao;?></p>
                             </div>
                             <a class="btn btn-primary" href="../visualizar/visualizar.php?id=<?php echo $ret->cd_img ?>">Visualizar</button></a>
+                            <a class="btn btn-danger mt-2" href="function/eliminar.php?id=<?php echo $ret->cd_img ?>">Elinimar</button></a>
                         </div>
                     </div>
                 <?php
