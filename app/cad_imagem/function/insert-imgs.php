@@ -11,20 +11,41 @@ $codigo = $_SESSION['codigo'];
 $titulo = $_POST['titulo'];
 $desc = $_POST['desc'];
 $qt_inp = $_POST['qt-inp'];
+$timer = $_POST['timer'];
 
-$sql = $conn->prepare("INSERT INTO 
+if(!isset($_POST['loop'])){
+    // echo 'nao tem nada';
+    $sql = $conn->prepare("INSERT INTO 
                         tbl_imagem
 
-                        (titulo, descricao, id_usu) 
+                        (titulo, descricao, id_usu, timer, loop_ft) 
 
                         VALUES 
 
-                        ('$titulo', '$desc', $codigo)
+                        ('$titulo', '$desc', $codigo, $timer, '0')
 
                     ");
-$passed = $sql->execute();
+    $passed = $sql->execute();
 
-$lastId = $conn->lastInsertId();
+    $lastId = $conn->lastInsertId();
+}else{
+    $sql = $conn->prepare("INSERT INTO 
+                        tbl_imagem
+
+                        (titulo, descricao, id_usu, timer, loop_ft) 
+
+                        VALUES 
+
+                        ('$titulo', '$desc', $codigo, $timer, '1')
+
+                    ");
+    $passed = $sql->execute();
+
+    $lastId = $conn->lastInsertId();
+}
+
+
+
 
 for ($i = 1; $i <= $qt_inp; $i++) {
     // var_dump($_FILES["input_pesquisa" . $i]);

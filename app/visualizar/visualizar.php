@@ -30,7 +30,7 @@ require_once('../../conexao.php');
     <main class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                
+
                 <?php
                 // var_dump($_GET['id']);
 
@@ -39,6 +39,8 @@ require_once('../../conexao.php');
                                         a.id_galeria,
                                         a.url,
                                         a.id_usuario,
+                                        b.timer,
+                                        b.loop_ft,
                                         b.titulo,
                                         b.descricao
                                     FROM
@@ -58,7 +60,9 @@ require_once('../../conexao.php');
                             'url' => "../image/" . $ret->url,
                             'titulo' => $ret->titulo,
                             'desc' => $ret->descricao,
-                            'idusuario' => $ret->id_usuario
+                            'idusuario' => $ret->id_usuario,
+                            'timer' => $ret->timer,
+                            'loop' => $ret->loop_ft,
                         ];
                     }
 
@@ -88,11 +92,25 @@ require_once('../../conexao.php');
 
                             var i = <?php echo Count($array[$key]) ?>
 
-                            setInterval(() => {
+                            if (<?php echo $array[$key][$g]['loop'] ?> == 1) {
+                                setInterval(() => {
 
-                                changePicture(i)
+                                    changePicture(i)
 
-                            }, 1000);
+                                }, <?php echo $array[$key][$g]['timer'] ?>);
+                            } else {
+                                var time = 0;
+                                do {
+                                    setInterval(() => {
+
+                                        changePicture(i)
+
+                                    }, <?php echo $array[$key][$g]['timer'] ?>);
+
+                                    time += <?php echo $array[$key][$g]['timer'] ?>;
+                                } while (time >= 60000);
+
+                            }
                         </script>
                         <h2 class="center"><?php echo $array[$key][$g]['titulo'] ?></h2>
                         <div class="row mt-5">
@@ -105,11 +123,11 @@ require_once('../../conexao.php');
                                 <p>Descricao:</p>
                                 <p><?php echo $array[$key][$g]['desc'] ?></p>
                                 <hr>
-                                <?php $sql = $conn->query("SELECT * from usuario where cd_usu =" . $array[$key][$g]['idusuario'] );
-                                    $ret2 = $sql->fetch(PDO::FETCH_OBJ);
+                                <?php $sql = $conn->query("SELECT * from usuario where cd_usu =" . $array[$key][$g]['idusuario']);
+                                $ret2 = $sql->fetch(PDO::FETCH_OBJ);
                                 ?>
                                 <p>Artista:</p>
-                                <p><?php echo $ret2->nm_usu?></p>
+                                <p><?php echo $ret2->nm_usu ?></p>
                                 <hr>
                             </div>
                         </div>

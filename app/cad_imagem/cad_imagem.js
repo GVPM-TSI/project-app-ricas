@@ -1,4 +1,5 @@
 $(function () {
+    $('#timer').val(localStorage.getItem("timer"))
     $('#titulo').val(localStorage.getItem("titulo"))
     $('#desc').val(localStorage.getItem("desc"))
 
@@ -51,28 +52,36 @@ $(function () {
 
 
     $("#salvar").on("click", function () {
-        // console.log($("#img_input").prop('files')[0]);
-
-        if ($("#titulo").val() != "") {
-            if ($("#desc").val() != "") {
-                if ($("#img_input").prop('files')[0] != undefined) {
-                    localStorage.removeItem("titulo");
-                    localStorage.removeItem("desc");
-                    $('form[name="formFotos"]').submit();
+        if ($('#timer').val() != "") {
+            if ($('#timer').val() > 1000 && $('#timer').val() < 3000) {
+                // console.log($('#timer').val());
+                if ($("#titulo").val() != "") {
+                    if ($("#desc").val() != "") {
+                        if ($("#img_input").prop('files')[0] != undefined) {
+                            localStorage.removeItem("titulo");
+                            localStorage.removeItem("desc");
+                            localStorage.removeItem("timer");
+                            $('form[name="formFotos"]').submit();
+                        } else {
+                            alert('prenchar com uma foto')
+                        }
+                    } else {
+                        $("#desc").attr('class', 'form-control input-erro');
+                    }
                 } else {
-                    alert('prenchar com uma foto')
+                    $("#titulo").attr('class', 'form-control input-erro');
                 }
             } else {
-                $("#desc").attr('class', 'form-control input-erro');
+                $('#alert').attr('class', 'col-md-12 mt-5 show');
             }
         } else {
-            $("#titulo").attr('class', 'form-control input-erro');
+            $("#timer").attr('class', 'form-control input-erro');
         }
 
     });
 
     $(".img").on('change', function () {
-       console.log(this); 
+        console.log(this);
     });
 
     $(".custom-file-input").on("change", function () {
@@ -86,17 +95,20 @@ $(function () {
     //     for (x = _espc_clone_index; x >= 0; x--) {
     //         // $("#destino").highlight($("#input_pesquisa" + x).val());
     //         console.log(x);
-            
+
     //     }
     // });
 
 
-    $("#titulo").blur(function() {
+    $("#titulo").blur(function () {
         localStorage.setItem("titulo", $(this).val());
     });
 
-    $("#desc").blur(function() {
+    $("#desc").blur(function () {
         localStorage.setItem("desc", $(this).val());
+    });
+    $("#timer").blur(function () {
+        localStorage.setItem("timer", $(this).val());
     });
 
 

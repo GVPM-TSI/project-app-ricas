@@ -39,17 +39,29 @@ verify_session();
         <form action="function/insert-imgs.php" name="formFotos" method="POST" enctype="multipart/form-data">
 
             <div class="row mt-3">
-                <div class="col-md-6">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="timer">Timer</label>
+                        <input type="number" name="timer" class="form-control input-bottom" id="timer" min="1000" max="3000" placeholder="Tempo em MS">
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="form-group">
                         <label for="titulo">Titulo da Obra</label>
                         <input type="text" name="titulo" class="form-control input-bottom" id="titulo" placeholder="Digite o titulo da obra">
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="form-group">
                         <label for="desc">Descrição </label>
                         <textarea name="desc" rows="1" class="form-control input-bottom" id="desc" placeholder="Digite a descrição da obra"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-1 mt-5">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="loop" id="loop">
+                        <label class="form-check-label" for="loop">Loop</label>
                     </div>
                 </div>
             </div>
@@ -87,7 +99,11 @@ verify_session();
                             </div>
                         </div>
                     </div>
-
+                    <div id="alert" class="col-md-12 mt-5 hidden">
+                        <div class="alert alert-warning" role="alert"  >
+                            O timer precisa ser MAIOR que 1000 ou MENOS que 3000
+                        </div>
+                    </div>
                 </div>
             </div>
 
