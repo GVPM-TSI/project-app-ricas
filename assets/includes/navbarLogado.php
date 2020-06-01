@@ -7,9 +7,6 @@
         </ul>
         <div class="justify-content-end">
             <ul class="navbar-nav">
-                <!-- <li class="nav-item">
-                    <a class="nav-link " href="../../sair.php"><span class="text-green">Adicionar nova obra</span></a>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link " href="../../app/perfil/perfil.php"><span>Perfil</span></a>
                 </li>
