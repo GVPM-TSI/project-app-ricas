@@ -18,64 +18,71 @@ $(function () {
 
         if (nome != "") {
             if (email != "") {
-                if (senha != "") {
-                    if (senhaConf != "") {
-                        if (senha == senhaConf) {
-                            $.ajax({
-                                type: 'POST',
-                                dataType: 'json',
-                                url: 'function/cadastro_usuario_banco.php',
-                                data: dados,
-                                success: function (data) {
-                                    if (data.msg == true) {
-                                        $("#email").val("");
-                                        $("#senha").val("");
+                if (validateEmail(email)) {
+                    if (senha != "") {
+                        if (senhaConf != "") {
+                            if (senha == senhaConf) {
+                                $.ajax({
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    url: 'function/cadastro_usuario_banco.php',
+                                    data: dados,
+                                    success: function (data) {
+                                        if (data.msg == true) {
+                                            $("#email").val("");
+                                            $("#senha").val("");
 
-                                        $(this).css("display", "block");
-                                        $("#btn_loading").css("display", "none");
-                                        $("#btn_cadstro").css("display", "blobk");
+                                            $(this).css("display", "block");
+                                            $("#btn_loading").css("display", "none");
+                                            $("#btn_cadstro").css("display", "blobk");
 
-                                        // swal({
-                                        //     title: "Nice!",
-                                        //     text: "Cadastro realizado com sucesso, agora faca seu login!!",
-                                        //     icon: "success",
-                                        //     button: {
-                                        //         text: "OK!",
-                                        //         // id: 'ok-modal',
-                                        //     },
-                                        // });
-                                        
-                                        $(location).attr('href', '../login/login.php');
+                                            // swal({
+                                            //     title: "Nice!",
+                                            //     text: "Cadastro realizado com sucesso, agora faca seu login!!",
+                                            //     icon: "success",
+                                            //     button: {
+                                            //         text: "OK!",
+                                            //         // id: 'ok-modal',
+                                            //     },
+                                            // });
 
-                                    } else if (data.msg == false) {
-                                        $("#nome").val();
-                                        $("#email").val();
-                                        $("#senha").val();
-                                        $("#senhaConf").val();
+                                            $(location).attr('href', '../login/login.php');
 
-                                        $(this).css("display", "block");
-                                        $("#btn_loading").css("display", "none");
+                                        } else if (data.msg == false) {
+                                            $("#nome").val();
+                                            $("#email").val();
+                                            $("#senha").val();
+                                            $("#senhaConf").val();
 
-                                        swal("Erro :(", "Não foi possivel fazer seu cadastro! ", "error");
+                                            $(this).css("display", "block");
+                                            $("#btn_loading").css("display", "none");
+
+                                            swal("Erro :(", "Não foi possivel fazer seu cadastro! ", "error");
+                                        }
                                     }
-                                }
-                            });
-                        } else {
-                            $("#senhaConf").val("");
-                            $("#senhaConf").css('border-bottom-color', 'red');
+                                });
+                            } else {
+                                $("#senhaConf").val("");
+                                $("#senhaConf").css('border-bottom-color', 'red');
 
+                                $(this).css("display", "block");
+                                $("#btn_loading").css("display", "none");
+                            }
+                        } else {
                             $(this).css("display", "block");
                             $("#btn_loading").css("display", "none");
+                            $("#senhaConf").css('border-bottom-color', 'red');
                         }
                     } else {
                         $(this).css("display", "block");
                         $("#btn_loading").css("display", "none");
-                        $("#senhaConf").css('border-bottom-color', 'red');
+                        $("#senha").css('border-bottom-color', 'red');
                     }
-                } else {
+                } else { 
                     $(this).css("display", "block");
                     $("#btn_loading").css("display", "none");
-                    $("#senha").css('border-bottom-color', 'red');
+
+                    swal("Erro :(", "Você precisa colocar um email valido! ", "error");
                 }
             } else {
                 $(this).css("display", "block");
@@ -93,5 +100,10 @@ $(function () {
     $(".swal-button").on('click', function () {
         $(location).attr('href', '../login/login.php');
     })
+
+    function validateEmail(email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test(email);
+    }
 
 });

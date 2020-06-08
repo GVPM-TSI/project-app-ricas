@@ -35,6 +35,20 @@ verify_session();
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+
+                    </ol>
+                    <div class="carousel-inner">
+                        <img class="d-block w-100" src="..." alt="" id="output">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row center">
             <div class="col-md-12 mt-5">
                 <h2>Adicionando uma nova Obra</h2>
@@ -89,13 +103,14 @@ verify_session();
                         </div>
                     </div>
 
+
                     <div id="group-inputs" class="row mt-3">
-                        <div id="_espc" class="col-md-12">
+                        <div id="_espc" class="col-md-6">
                             <div class="row mt-3 mr-2">
                                 <div class="col-md-10">
                                     <label for="customFile">Foto</label>
                                     <div class="custom-file">
-                                        <input style="width: 100%;" type="file" class="img" name="customFile" id="img_input" accept="image/*">
+                                        <input style="width: 100%;" type="file" class="img" name="customFile" id="img_input" accept="image/*" onchange="loadFile(event)">
                                     </div>
                                 </div>
                                 <div class="col-md-2 margin-trash">
@@ -103,6 +118,7 @@ verify_session();
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div id="alert" class="col-md-12 mt-5 hidden">
                         <div class="alert alert-warning" role="alert">
